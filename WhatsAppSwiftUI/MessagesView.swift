@@ -41,12 +41,10 @@ struct MessagesViews: View {
                     } else {
                         Text(message.content)
                             .rotationEffect(.radians(.pi))
-    //                        .frame(maxWidth: geometry.size.width * 0.8)
                             .padding()
                             .background(Color.red)
                             .cornerRadius(8)
                             .frame(minWidth: 0, maxWidth: geometry.size.width, alignment: .trailing)
-    //                        .offset(x: geometry.size.width * 0.5, y: 0)
                     }
                 }.padding(EdgeInsets(top: 40, leading: 16, bottom: 20, trailing: 16))
 
