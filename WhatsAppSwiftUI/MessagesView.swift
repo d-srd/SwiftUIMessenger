@@ -75,7 +75,7 @@ struct MessageView: View {
     }
 }
 
-struct MessagesViews: View {
+struct MessageListView: View {
     let messages: [Message]
     
     var body: some View {

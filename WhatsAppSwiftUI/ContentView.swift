@@ -16,7 +16,7 @@ var messages: [Message] = {
 
 struct ContentView: View {
     var body: some View {
-        MessagesViews(messages: messages)
+        MessageListView(messages: messages)
     }
 }
 
