@@ -51,46 +51,37 @@ struct MessageTailView: View {
     }
 }
 
+struct MessageView: View {
+    let message: Message
+    
+    var body: some View {
+        HStack {
+            if message.sender == .me {
+                Spacer()
+            }
+            
+            Text(message.content)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding()
+                .background(message.sender == .me ? Color.blue : Color.red)
+                .cornerRadius(8)
+            
+            if message.sender != .me {
+                Spacer()
+            }
+        }
+    }
+}
+
 struct MessagesViews: View {
-    @State var messages: [Message] = [
-        .init(sender: .me, content: "Hi there! How's it going?"),
-        .init(sender: .other(named: "Pero"), content: "Is ok bro. How bout everything going on with u and ur all of the bestest most famous all of them yes quite it must be very yodling to be about it"),
-        .init(sender: .me, content: "E moj Pero da je Pero biti lako Pero")
-    ]
+    let messages: [Message]
     
     var body: some View {
         ScrollView {
             ForEach(messages.reversed()) { message in
-                GeometryReader { geometry in
-                    if message.sender == .me {
-                        Text(message.content)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .rotationEffect(.radians(.pi))
-                        .padding()
-                            .background(Color.blue)
-                            .cornerRadius(8)
-                    } else {
-                        ZStack(alignment: .trailing) {
-                            MessageTailView()
-                                .rotationEffect(.radians(.pi))
-                                .frame(width: 20, height: 20, alignment: .trailing)
-                                .offset(x: 0, y: -20)
-
-                            Text(message.content)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .rotationEffect(.radians(.pi))
-                            .padding()
-//                                .padding(.vertical, 2)
-//                                .padding(.horizontal, 4)
-                                .background(Color.red)
-                                .cornerRadius(8)
-                                .offset(x: 6, y: 0)
-                        }
-                    }
-                }.padding(EdgeInsets(top: 40, leading: 14, bottom: 20, trailing: 14))
-
+                MessageView(message: message).padding(.horizontal, 4)
             }
         }
-        .rotationEffect(.radians(.pi))
     }
 }
