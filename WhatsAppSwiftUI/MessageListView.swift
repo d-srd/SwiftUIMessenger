@@ -15,7 +15,7 @@ struct MessageListView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(self.messages.reversed()) { message in
+                ForEach(self.messages) { message in
                     MessageView(message: message)
                         .padding(.horizontal, 8)
                         .padding(self.paddingInsets(for: message, geometry: geometry))

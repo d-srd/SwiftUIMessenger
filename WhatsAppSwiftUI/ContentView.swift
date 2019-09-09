@@ -16,7 +16,7 @@ var messages: [Message] = {
 
 struct ContentView: View {
     var body: some View {
-        MessageListView(messages: messages)
+        MessageListView(messages: messages.reversed())
     }
 }
 
