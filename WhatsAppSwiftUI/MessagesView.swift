@@ -63,9 +63,10 @@ struct MessageView: View {
             Text(message.content)
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
-                .padding()
-                .background(message.sender == .me ? Color.blue : Color.red)
-                .cornerRadius(8)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 4)
+                .background(message.sender == .me ? Color.gray : Color.blue)
+                .cornerRadius(16)
             
             if message.sender != .me {
                 Spacer()
@@ -78,7 +79,7 @@ struct MessagesViews: View {
     let messages: [Message]
     
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             ForEach(messages.reversed()) { message in
                 MessageView(message: message).padding(.horizontal, 4)
             }
