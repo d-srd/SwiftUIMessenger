@@ -1,5 +1,5 @@
 //
-//  MessagesView.swift
+//  MessageListView.swift
 //  WhatsAppSwiftUI
 //
 //  Created by Dino on 05/09/2019.

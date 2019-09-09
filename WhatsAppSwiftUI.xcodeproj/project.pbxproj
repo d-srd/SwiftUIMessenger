@@ -16,7 +16,7 @@
 		31A37D1523212DC4009151FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A37D1423212DC4009151FA /* Assets.xcassets */; };
 		31A37D1823212DC4009151FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A37D1723212DC4009151FA /* Preview Assets.xcassets */; };
 		31A37D1B23212DC4009151FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31A37D1923212DC4009151FA /* LaunchScreen.storyboard */; };
-		31A37D2323212EF9009151FA /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A37D2223212EF9009151FA /* MessagesView.swift */; };
+		31A37D2323212EF9009151FA /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A37D2223212EF9009151FA /* MessageListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		31A37D1723212DC4009151FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31A37D1A23212DC4009151FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31A37D1C23212DC4009151FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31A37D2223212EF9009151FA /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		31A37D2223212EF9009151FA /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 				31A37D1223212DC2009151FA /* ContentView.swift */,
 				312C449D2326F55B00EA8361 /* Message.swift */,
 				312C44A12326F5AB00EA8361 /* MessageView.swift */,
-				31A37D2223212EF9009151FA /* MessagesView.swift */,
+				31A37D2223212EF9009151FA /* MessageListView.swift */,
 				312C449F2326F58400EA8361 /* MessageTailView.swift */,
 				31A37D1423212DC4009151FA /* Assets.xcassets */,
 				31A37D1923212DC4009151FA /* LaunchScreen.storyboard */,
@@ -159,7 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				312C44A02326F58400EA8361 /* MessageTailView.swift in Sources */,
-				31A37D2323212EF9009151FA /* MessagesView.swift in Sources */,
+				31A37D2323212EF9009151FA /* MessageListView.swift in Sources */,
 				31A37D0F23212DC2009151FA /* AppDelegate.swift in Sources */,
 				312C449E2326F55B00EA8361 /* Message.swift in Sources */,
 				31A37D1123212DC2009151FA /* SceneDelegate.swift in Sources */,
