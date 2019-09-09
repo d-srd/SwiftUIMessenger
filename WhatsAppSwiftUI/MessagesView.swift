@@ -65,7 +65,7 @@ struct MessageView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 4)
-                .background(message.sender == .me ? Color.gray : Color.blue)
+                .background(message.sender == .me ? Color.gray : Color.accentColor)
                 .cornerRadius(16)
             
             if message.sender != .me {
@@ -79,9 +79,13 @@ struct MessagesViews: View {
     let messages: [Message]
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            ForEach(messages.reversed()) { message in
-                MessageView(message: message).padding(.horizontal, 4)
+        GeometryReader { geometry in
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(self.messages.reversed()) { message in
+                    MessageView(message: message)
+                        .padding(.horizontal, 8)
+                        .padding(EdgeInsets(top: 0, leading: message.sender == .me ? geometry.size.width * 0.3 : 0, bottom: 0, trailing: message.sender != .me ? geometry.size.width * 0.3 : 0))
+                }
             }
         }
     }
