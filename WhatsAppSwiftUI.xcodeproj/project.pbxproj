@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		312C449E2326F55B00EA8361 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312C449D2326F55B00EA8361 /* Message.swift */; };
 		31A37D0F23212DC2009151FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A37D0E23212DC2009151FA /* AppDelegate.swift */; };
 		31A37D1123212DC2009151FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A37D1023212DC2009151FA /* SceneDelegate.swift */; };
 		31A37D1323212DC2009151FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A37D1223212DC2009151FA /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		312C449D2326F55B00EA8361 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		31A37D0B23212DC2009151FA /* WhatsAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A37D0E23212DC2009151FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31A37D1023212DC2009151FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				31A37D0E23212DC2009151FA /* AppDelegate.swift */,
 				31A37D1023212DC2009151FA /* SceneDelegate.swift */,
 				31A37D1223212DC2009151FA /* ContentView.swift */,
+				312C449D2326F55B00EA8361 /* Message.swift */,
 				31A37D2223212EF9009151FA /* MessagesView.swift */,
 				31A37D1423212DC4009151FA /* Assets.xcassets */,
 				31A37D1923212DC4009151FA /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				31A37D2323212EF9009151FA /* MessagesView.swift in Sources */,
 				31A37D0F23212DC2009151FA /* AppDelegate.swift in Sources */,
+				312C449E2326F55B00EA8361 /* Message.swift in Sources */,
 				31A37D1123212DC2009151FA /* SceneDelegate.swift in Sources */,
 				31A37D1323212DC2009151FA /* ContentView.swift in Sources */,
 			);
