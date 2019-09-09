@@ -65,7 +65,7 @@ struct MessageView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 4)
-                .background(message.sender == .me ? Color.gray.opacity(0.7) : Color.accentColor.opacity(0.7))
+                .background(message.sender == .me ? Color.accentColor.opacity(0.7) : Color.gray.opacity(0.4))
                 .cornerRadius(16)
             
             if message.sender != .me {
