@@ -81,23 +81,41 @@ struct MessagesViews: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(self.messages.reversed()) { (message: Message) -> AnyView in
-                    let currentMessageIndex = self.messages.firstIndex(of: message)
-                    let previousMessageIndex = currentMessageIndex.flatMap { self.messages.index($0, offsetBy: -1, limitedBy: 0) }
-                    let nextMessageIndex = currentMessageIndex.flatMap { self.messages.index($0, offsetBy: 1, limitedBy: self.messages.count - 1) }
-                    let isPreviousSenderSameAsCurrent = previousMessageIndex.map { self.messages[$0] }?.sender == message.sender
-                    let isNextSenderSameAsCurrent = nextMessageIndex.map { self.messages[$0] }?.sender == message.sender
-                    
-                    let ah = MessageView(message: message)
+                ForEach(self.messages.reversed()) { message in
+                    MessageView(message: message)
                         .padding(.horizontal, 8)
                         .padding(EdgeInsets(
-                            top: isPreviousSenderSameAsCurrent ? -4 : 0,
+                            top: self.topPadding(for: message),
                             leading: message.sender == .me ? geometry.size.width * 0.3 : 0,
-                            bottom: isNextSenderSameAsCurrent ? -4 : 0,
+                            bottom: self.bottomPadding(for: message),
                             trailing: message.sender != .me ? geometry.size.width * 0.3 : 0))
-                    return AnyView(ah)
                 }
             }
         }
     }
+    
+    private func topPadding(for message: Message) -> CGFloat {
+        let currentMessageIndex = self.messages.firstIndex(of: message)
+        let previousMessageIndex = currentMessageIndex.flatMap { self.messages.index($0, offsetBy: -1, limitedBy: 0) }
+        let isPreviousSenderSameAsCurrent = previousMessageIndex.map { self.messages[$0] }?.sender == message.sender
+        
+        if isPreviousSenderSameAsCurrent {
+            return -4
+        }
+        
+        return 0
+    }
+    
+    private func bottomPadding(for message: Message) -> CGFloat {
+        let currentMessageIndex = self.messages.firstIndex(of: message)
+        let nextMessageIndex = currentMessageIndex.flatMap { self.messages.index($0, offsetBy: 1, limitedBy: self.messages.count - 1) }
+        let isNextSenderSameAsCurrent = nextMessageIndex.map { self.messages[$0] }?.sender == message.sender
+        
+        if isNextSenderSameAsCurrent {
+            return -4
+        }
+        
+        return 0
+    }
+
 }
