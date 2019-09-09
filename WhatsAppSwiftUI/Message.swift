@@ -36,4 +36,14 @@ struct Message: Hashable, Identifiable, Decodable {
             sender = .other(named: senderString)
         }
     }
+    
+    init(id: Int, sender: Sender, content: String) {
+        self.id = id
+        self.sender = sender
+        self.content = content
+    }
+}
+
+extension Message {
+    static let mock: Self = .init(id: -1, sender: .me, content: "Hello World!")
 }
