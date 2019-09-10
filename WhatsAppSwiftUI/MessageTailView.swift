@@ -9,8 +9,14 @@
 import SwiftUI
 
 
-struct MessageTailView: View {
+struct MessageTailView<Background: ShapeStyle>: View {
     let sender: Message.Sender
+    let backgroundFill: Background
+    
+    init(sender: Message.Sender, background: () -> Background) {
+        self.sender = sender
+        self.backgroundFill = background()
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -39,13 +45,15 @@ struct MessageTailView: View {
                 path.addQuadCurve(to: curveOnePoint, control: curveOneControl)
                 path.addQuadCurve(to: curveTwoPoint, control: curveTwoControl)
             }
-            .fill(self.sender == .me ? Color.accentColor.opacity(0.7) : Color.gray.opacity(0.4))
+            .fill(self.backgroundFill)
         }
     }
 }
 
 struct MessageTailView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageTailView(sender: .me)
+        MessageTailView(sender: .me) {
+            Color.blue
+        }
     }
 }
