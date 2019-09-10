@@ -40,7 +40,6 @@ struct MessageTailView: View {
                 path.addQuadCurve(to: curveTwoPoint, control: curveTwoControl)
             }
             .fill(Color.red)
-            .transformEffect(.init(scaleX: self.sender == .me ? -1 : 1, y: 1))
         }
     }
 }
