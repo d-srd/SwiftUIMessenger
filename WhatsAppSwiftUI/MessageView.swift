@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MessageView: View {
     let message: Message
+    let shouldDrawTail: Bool
     
     var body: some View {
         HStack {
@@ -26,8 +27,10 @@ struct MessageView: View {
                     .background(message.sender == .me ? Color.accentColor.opacity(0.7) : Color.gray.opacity(0.4))
                     .cornerRadius(16)
                 
-                MessageTailView(sender: message.sender)
-                    .frame(width: 20, height: 20, alignment: .leading)
+                if shouldDrawTail {
+                    MessageTailView(sender: message.sender)
+                        .frame(width: 20, height: 20, alignment: .leading)
+                }
             }
             
             if message.sender != .me {
@@ -39,6 +42,6 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(message: Message.mock)
+        MessageView(message: Message.mock, shouldDrawTail: true)
     }
 }
