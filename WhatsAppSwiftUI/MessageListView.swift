@@ -27,8 +27,6 @@ struct MessageListView: View {
     private func shouldDrawTail(for message: Message) -> Bool {
         let currentMessageIndex = self.messages.firstIndex(of: message)
         let nextMessageIndex = currentMessageIndex.flatMap { self.messages.index($0, offsetBy: 1, limitedBy: self.messages.count - 1) }
-        let previousMessageIndex = currentMessageIndex.flatMap { self.messages.index($0, offsetBy: -1, limitedBy: 0) }
-        let isPreviousSenderSameAsCurrent = previousMessageIndex.map { self.messages[$0] }?.sender == message.sender
         let isNextSenderSameAsCurrent = nextMessageIndex.map { self.messages[$0] }?.sender == message.sender
         
         return !isNextSenderSameAsCurrent
