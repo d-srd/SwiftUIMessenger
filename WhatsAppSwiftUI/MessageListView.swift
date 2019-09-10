@@ -38,7 +38,7 @@ struct MessageListView: View {
         let isCurrentUserSender = message.sender == .me
         
         if isPreviousSenderSameAsCurrent {
-            top = -4
+            top = -3
         } else {
             top = 0
         }
@@ -50,7 +50,7 @@ struct MessageListView: View {
         }
         
         if isNextSenderSameAsCurrent {
-            bottom = -4
+            bottom = -3
         } else {
             bottom = 0
         }
