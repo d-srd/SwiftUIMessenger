@@ -12,6 +12,13 @@ struct MessageView: View {
     let message: Message
     let shouldDrawTail: Bool
     
+    private var activeBackgroundColor: Color {
+        message.sender == .me ? Color("MessageBackgroundCurrentUser") : Color("MessageBackgroundOtherUser")
+    }
+    private var activeForegroundColor: Color {
+        message.sender == .me ? Color("MessageForegroundCurrentUser") : Color("MessageForegroundOtherUser")
+    }
+    
     var body: some View {
         HStack {
             if message.sender == .me {
@@ -24,13 +31,13 @@ struct MessageView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 4)
-                    .background(message.sender == .me ? Color.accentColor.opacity(0.7) : Color.gray.opacity(0.4))
-                    .foregroundColor(message.sender == .me ? Color.white : Color.black)
+                    .background(activeBackgroundColor)
+                    .foregroundColor(activeForegroundColor)
                     .cornerRadius(16)
                     .offset(x: message.sender == .me ? -4 : 4, y: 0)
                 
                 if shouldDrawTail {
-                    MessageTailView(sender: message.sender)
+                    MessageTailView(sender: message.sender) { self.activeBackgroundColor }
                         .frame(width: 20, height: 16, alignment: .leading)
                         .offset(x: 0, y: -8)
                 }
