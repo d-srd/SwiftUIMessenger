@@ -25,11 +25,14 @@ struct MessageView: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 4)
                     .background(message.sender == .me ? Color.accentColor.opacity(0.7) : Color.gray.opacity(0.4))
+                    .foregroundColor(message.sender == .me ? Color.white : Color.black)
                     .cornerRadius(16)
+                    .offset(x: message.sender == .me ? -4 : 4, y: 0)
                 
                 if shouldDrawTail {
                     MessageTailView(sender: message.sender)
-                        .frame(width: 20, height: 20, alignment: .leading)
+                        .frame(width: 20, height: 16, alignment: .leading)
+                        .offset(x: 0, y: -8)
                 }
             }
             
