@@ -1,0 +1,9 @@
+.DS_Store
+*.ipa
+*.dSYM
+*.pem
+*.p12
+*.dSYM.zip
+*.pkey
+fastlane/report.xml
+xcuserdata/
