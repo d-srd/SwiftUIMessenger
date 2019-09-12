@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 struct MessageTailView<Background: ShapeStyle>: View {
     let sender: Message.Sender
     let backgroundFill: Background

@@ -8,15 +8,38 @@
 
 import SwiftUI
 
-var messages: [Message] = {
-    let decoder = JSONDecoder()
-    let data = allMessagesString.data(using: .utf8)!
-    return try! decoder.decode([Message].self, from: data)
-}()
-
 struct ContentView: View {
+    @State var messages: [Message] = {
+        let decoder = JSONDecoder()
+        let data = allMessagesString.data(using: .utf8)!
+        return try! decoder.decode([Message].self, from: data)
+    }()
+
     var body: some View {
-        MessageListView(messages: messages.reversed())
+        NavigationView {
+            VStack(spacing: 0) {
+                MessageListView(messages: messages)
+                    .navigationBarTitle("Johnny Appleseed", displayMode: .automatic)
+                
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(height: 1)
+                        .shadow(radius: 4)
+                    
+                    MessageInputView() { enteredText in
+                        let id = (self.messages.map { $0.id }.max() ?? 0) + 1
+                        let message = Message(id: id, sender: .me, content: enteredText)
+                        self.messages.append(message)
+                    }
+                    
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(height: 44)
+                }
+            }
+            .edgesIgnoringSafeArea(.bottom)
+        }
     }
 }
 
